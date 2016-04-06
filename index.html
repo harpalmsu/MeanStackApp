@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app='myapp'>
+<head>
+	<title>
+		Mean Application
+	</title>
+	<script src='angular.min.js'></script>
+	<script type="text/javascript" src='myscript.js'></script>
+	<script src='angular-route.min.js'></script>
+	<script type="text/javascript" src='jquery.min.js'></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<link rel='stylesheet' href='bootstrap.min.css'>
+	<script type="text/javascript">
+		
+		var app = angular.module('myapp',[]);
+		app.controller('myctrl',function($scope,$http){
+		$scope.name = "Harpal";
+		$scope.get('/login').success(function(response){
+			console.log(response.data);
+		});
+		
+		console.log(name);
+		});
+	
+	</script>
+	<body>
+		<div ng-controller='myctrl'> 
+		<h1>Mean Application</h1>
+		<hr>
+
+		<form method='post'>
+			Name : 
+			<input type='text' name='name' ng-model='name' placeholder='Name'>
+			<br>
+			{{name}}
+			<br>
+			<input type='submit' ng-submit='submit' value='submit'>
+		</form>
+	</div>
